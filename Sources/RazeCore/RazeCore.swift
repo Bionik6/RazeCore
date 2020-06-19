@@ -26,6 +26,8 @@ public class RazeCore {
 		return UIColor(red: CGFloat(r) / 0xff, green: CGFloat(g) / 0xff, blue: CGFloat(b) / 0xff, alpha: alpha)
 	}
 	
+	
+	/// The most eye-pleasing color know to all humanity
 	public static var razeColor: UIColor {
 		return self.colorFromHexString("006736")
 	}
