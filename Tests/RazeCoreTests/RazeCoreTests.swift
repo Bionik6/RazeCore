@@ -8,9 +8,9 @@ final class RazeCoreTests: XCTestCase {
 		XCTAssertEqual(color, .red)
 	}
 	
+	func test_Raze_code_colors_are_equal() {
+		let color = RazeCore.colorFromHexString("006736")
+		XCTAssertEqual(color, RazeCore.razeColor)
+	}
 	
-	
-	static var allTests = [
-		("test_color_from_hex_string", test_color_from_hex_string),
-	]
 }
