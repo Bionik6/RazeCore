@@ -48,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		402F3FF5249E29EF00828AB9 /* RazeBionik.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = RazeBionik.podspec; sourceTree = "<group>"; };
 		409C639C249D3B2A009FFC69 /* RazeCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazeCore.swift; sourceTree = "<group>"; };
 		409C639E249D3BB3009FFC69 /* RazeNetworkingTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RazeNetworkingTests.swift; sourceTree = "<group>"; };
 		409C63A0249D3CC4009FFC69 /* Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Networking.swift; sourceTree = "<group>"; };
@@ -105,16 +106,16 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
+				402F3FF5249E29EF00828AB9 /* RazeBionik.podspec */,
 				OBJ_7 /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,
 				OBJ_17 /* README.md */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -202,7 +203,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
