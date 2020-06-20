@@ -2,6 +2,7 @@ import Foundation
 
 public protocol NetworkSession {
 	func get(from url: URL, completionHandler: @escaping (Data?, Error?) -> Void)
+	func post(with request: URLRequest, completionHandler: @escaping (Data?, Error?) -> Void)
 }
 
 extension URLSession: NetworkSession {
@@ -11,6 +12,14 @@ extension URLSession: NetworkSession {
 		}
 		task.resume()
 	}
+	
+	public func post(with request: URLRequest, completionHandler: @escaping (Data?, Error?) -> Void) {
+		let task = dataTask(with: request) { data, _, error in
+			completionHandler(data, error)
+		}
+		task.resume()
+	}
+	
 }
 
 extension RazeCore {
@@ -35,6 +44,28 @@ extension RazeCore {
 					completion(result)
 				}
 			}
+			
+			/// Calls to the live internet to send data to a specific location
+			/// - Warning: Make sure that the URL in question can accept a POST route
+			/// - Parameters:
+			///   - url: The location you wish to send data to
+			///   - body: The object you wish to send over the network
+			///   - completion: Returns a result ofject which signifies the status of the request
+			public func sendData<I: Codable>(to url: URL, body: I, completion: @escaping (NetworkResult<Data>)->Void) {
+				var request = URLRequest(url: url)
+				do {
+					let httpBody = try JSONEncoder().encode(body)
+					request.httpMethod = "POST"
+					request.httpBody = httpBody
+					session.post(with: request) { data, error in
+						let result = data.map(NetworkResult<Data>.success) ?? .failure(error)
+						completion(result)
+					}
+				} catch let error {
+					completion(.failure(error))
+				}
+			}
+			
 		}
 		
 	}
